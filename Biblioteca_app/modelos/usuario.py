@@ -1,11 +1,6 @@
 class Usuario: #Representa un usuario de la biblioteca.
     
-    def __init__(self, nombre: str, id_usuario: str):
-        """
-        Inicializa un usuario.
-        :param nombre: Nombre completo.
-        :param id_usuario: Identificador único (ej. documento, código).
-        """
+    def __init__(self, nombre: str, id_usuario: str): #Inicializa un nuevo usuario con su nombre, ID y una lista vacía de libros prestados.
         self._nombre = nombre
         self._id_usuario = id_usuario
         self._libros_prestados = []  # lista de objetos Libro

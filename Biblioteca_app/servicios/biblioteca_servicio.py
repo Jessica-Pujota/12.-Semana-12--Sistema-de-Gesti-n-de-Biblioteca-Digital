@@ -1,8 +1,8 @@
+
 from modelos.libro import Libro
 from modelos.usuario import Usuario
 
 class BibliotecaServicio: #Lógica de negocio de la biblioteca.
-    
     def __init__(self): # Diccionario de libros disponibles: ISBN -> Libro
         self._libros_disponibles = {} # Diccionario de usuarios registrados: ID -> Usuario
         self._usuarios = {}  # Conjunto para mantener IDs únicos de usuarios (cumple requisito)
@@ -14,6 +14,7 @@ class BibliotecaServicio: #Lógica de negocio de la biblioteca.
             return False
         self._libros_disponibles[libro.isbn] = libro
         return True
+    
     def quitar_libro(self, isbn: str) -> bool: #  Elimina un libro del catálogo de disponibles (solo si no está prestado).
         if isbn in self._libros_disponibles:
             del self._libros_disponibles[isbn]
@@ -24,6 +25,7 @@ class BibliotecaServicio: #Lógica de negocio de la biblioteca.
     def registrar_usuario(self, usuario: Usuario) -> bool: #Registra un nuevo usuario.
         if usuario.id_usuario in self._ids_usuarios:
             return False
+        
         self._usuarios[usuario.id_usuario] = usuario
         self._ids_usuarios.add(usuario.id_usuario)
         return True
